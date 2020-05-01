@@ -110,6 +110,8 @@ function plotData2Map(query) {
                 };
                 case 'Private room':   return {fillColor: "#3FB211",
                 color: null};
+                case 'Shared room':   return {fillColor: "#9467bd",
+                color: null};
                 default: return {fillColor: "#FFFF",
                 color: null,
                 fillOpacity: 0
@@ -117,7 +119,7 @@ function plotData2Map(query) {
         // onEachFeature: onEachFeature,
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, {
-                radius: 2,
+                radius: 3,
                 fillOpacity: 0.5,
             });
         }
