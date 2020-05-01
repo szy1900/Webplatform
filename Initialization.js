@@ -13,7 +13,7 @@ $(document).ready(function()
     })
 
     update_market_count('All_market')
-    update_mymap('All_market')
+    Initialize_bar_and_map('All_market')
   // $("button").click(function(){
   //   $("p").text("Hello world!");
   }

@@ -1,6 +1,17 @@
+h1
+{
+    position: absolute;
+    left: 80px;
+}
 #mapid {
+    top: 65px;
     right: 500px;
-    height: 100%;}
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom: 0px;
+
+}
 
 .Total_number
 {
@@ -34,7 +45,7 @@
 .narrativePanelHeader {
     position: absolute;
     top: 0px;
-    width: 500px;
+    width: 490px;
     right: 10px;
     height: 150px;
     padding: 10px;
@@ -97,7 +108,9 @@
 text{
   font-size: 1em;
 }
-
+.dimensionMetricsSecondary .dollarSign, .dimensionMetricsSecondary .percentageSign, #summaryListingLabel .percentageSign, #listingHover .dollarSign {
+    font-size: .7em;
+}
 /*.dimensionContainer h2{*/
 /*    font-family: 'Lato', sans-serif;*/
 /*    font-weight: 900;*/

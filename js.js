@@ -10,51 +10,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1Ijoic3p5MTkwMCIsImEiOiJjazlqanZoNXQwN2FnM2RxcTQyanR4b2txIn0.wl2vC4Qk_3R5tvEhqMCMpA'
 }).addTo(mymap);
 
- function plotData2Map(query) {
-    var param = $.param({
-      q: query,
-      format: "GeoJSON"
-    });
-
-    var url = "https://szy0414.cartodb.com/api/v2/sql?" + param;
-
-    // console.log(url);
-
-    mymap.fire('dataloading');
-
-    $.getJSON(url).done(function(data){
-      // Clean the layer
-      mymap.removeLayer(airbnbGeoJson);
-
-      var airbnbData = data;
-
-      airbnbGeoJson = L.geoJson(airbnbData, {
-        style: function (feature) {
-             switch (feature.properties.room_type) {
-                case 'Entire home/apt': return {fillColor: "#f03",
-                    color:null
-                };
-                case 'Private room':   return {fillColor: "#3FB211",
-                color: null};
-                default: return {fillColor: "#FFFF",
-                color: null,
-                fillOpacity: 0
-                };}},
-        // onEachFeature: onEachFeature,
-        pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, {
-                radius: 2,
-                fillOpacity: 0.5,
-            });
-        }
-      }).addTo(mymap);
-
-      // map.fitBounds(airbnbGeoJson.getBounds());
-
-      mymap.fire('dataload');
-
-    });
-  }
 $('.markets').on('click', 'li', function(event) {
     var my_text = $(this).text();
     if (my_text !== 'Barwon South West (All markets)')
@@ -68,19 +23,8 @@ $('.markets').on('click', 'li', function(event) {
     }
     event.preventDefault();
     plotData2Map(query);
-    var file_name = 'dataset/' + my_text + '.csv'
-    file_name= file_name.split(' ').join('_');
-    // console.log(file_name)
-   d3.csv(file_name).then(data => {
-       filtered_accomadation = data.filter((d)=>{
-          return d.room_type !=='Hotel room'
-       })
-      filtered_accomadation.forEach(d => {
-        d.mean= +d.mean;
-        d.count=+d.count
-      });
-      render(filtered_accomadation);
-    });
+    update_bar(my_text);
+    // console.log(update_bar(my_text))
     update_market_count(my_text)
 
   });
