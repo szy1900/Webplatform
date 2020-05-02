@@ -1,4 +1,4 @@
-var mymap = L.map('mapid').setView([-38.5, 142.5],9);
+var mymap = L.map('mapid').setView([-38.5, 143],9);
 const svg = d3.select('svg');
 const width = +svg.attr('width');
 const height = +svg.attr('height');

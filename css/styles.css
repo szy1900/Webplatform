@@ -5,8 +5,8 @@ h1
 }
 #mapid {
     top: 65px;
-    right: 600px;
-    width: 100%;
+    /*right: 600px;*/
+    width: 65%;
     height: 100%;
     position: fixed;
     bottom: 0px;
@@ -47,8 +47,8 @@ h1, .h1 {
 .narrativePanelHeader {
     position: absolute;
     top: 0px;
-    width: 590px;
-    right: 10px;
+    width: 35%;
+    right: 0px;
     height: 170px;
     padding: 10px;
     z-index: 50;
@@ -64,7 +64,7 @@ h1, .h1 {
     padding-left: 30px;
  }
 .narrativePanelContent {
-    width: 600px;
+    width: 35%;
     color: #5a5a5a;
 }
 .narrativePanelContent{
