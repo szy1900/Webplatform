@@ -3,6 +3,9 @@ h1
     position: absolute;
     left: 160px;
 }
+/*svg{*/
+/*    width:350px;*/
+/*}*/
 #mapid {
     top: 65px;
     /*right: 600px;*/
